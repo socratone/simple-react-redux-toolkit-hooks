@@ -1,8 +1,21 @@
 import React from 'react';
-import styles from './App.module.scss';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import Bugs from './components/Bugs';
+import AddButton from './components/AddButton';
+import RemoveButton from './components/RemoveButton';
+import './App.module.scss';
+
+const store = configureStore();
 
 const App = () => {
-  return <div className={styles.helloWorld}>hello world</div>;
+  return (
+    <Provider store={store}>
+      <AddButton />
+      <RemoveButton />
+      <Bugs />
+    </Provider>
+  );
 }
 
 export default App;
